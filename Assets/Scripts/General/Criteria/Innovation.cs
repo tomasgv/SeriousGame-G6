@@ -26,6 +26,6 @@ public class Innovation : MonoBehaviour
     {
         curInnovation -= points;
 
-        innovationBar.SetHealth(curInnovation);
+        innovationBar.SetInnovation(curInnovation);
     }
 }

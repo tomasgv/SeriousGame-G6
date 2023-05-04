@@ -16,7 +16,7 @@ public class InnovationBar : MonoBehaviour
         innovationBar.value = playerInnovation.maxInnovation;
     }
 
-    public void SetHealth(int value)
+    public void SetInnovation(int value)
     {
         innovationBar.value = value;
     }
