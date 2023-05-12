@@ -5,8 +5,21 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     public GameObject panelWelcomePage;
-    public GameObject panelInGame;
+    public PanelInGame panelInGame;
     public GameObject panelGameOver;
+
+    private static UIManager _instance;
+    public static UIManager instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = GameObject.FindObjectOfType<UIManager>();
+            }
+            return _instance;
+        }
+    }
 
     public void LaunchLevel2()
     {
@@ -20,12 +33,12 @@ public class UIManager : MonoBehaviour
     public void GoToStateWelcome()
     {
         panelWelcomePage.SetActive(true);
-        panelInGame.SetActive(false);
+        panelInGame.gameObject.SetActive(false);
     }
 
     public void GoToStateInGame()
     {
         panelWelcomePage.SetActive(false);
-        panelInGame.SetActive(true);
+        panelInGame.gameObject.SetActive(true);
     }
 }
