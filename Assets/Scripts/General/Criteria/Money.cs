@@ -5,9 +5,10 @@ using UnityEngine;
 public class Money : MonoBehaviour
 {
     public int curMoney = 0;
-    public int maxMoney = 100;
+    public int maxMoney = 10;
 
     public MoneyBar moneyBar;
+    public MoneyBar resultsMoneyBar;
 
     void Start()
     {
@@ -16,16 +17,20 @@ public class Money : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+    }
+
+    public void UpdateMoney(int points)
+    {
+        curMoney += points;
+        if (curMoney > maxMoney)
         {
-            DecreaseMoney(10);
+            curMoney = maxMoney;
         }
     }
 
-    public void DecreaseMoney(int points)
+    public void UpdateBar()
     {
-        curMoney -= points;
-
         moneyBar.SetMoney(curMoney);
+        resultsMoneyBar.SetMoney(curMoney);
     }
 }

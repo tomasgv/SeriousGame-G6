@@ -9,6 +9,20 @@ public class Main : MonoBehaviour
     public STATE state;
 
     public UIManager uiManager;
+    public Player player;
+
+    private static Main _instance;
+    public static Main instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = GameObject.FindObjectOfType<Main>();
+            }
+            return _instance;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()

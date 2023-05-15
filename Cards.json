@@ -1,0 +1,445 @@
+[
+  {
+    "id": "T1",
+    "dependency": [],
+    "actor": "CTO",
+    "prob": 1,
+    "content": "Good morning Mr. Trust! Our department of Computer Vision has just developed a new facial recognition app for police surveillance, but our database for making estimations is still a little small and it only contains american faces. Should we already launch a first beta version of the app?",
+    "answers": [
+      {
+        "key": 1,
+        "content": "Launch it.",
+        "values": {
+          "innovation": 1,
+          "money": -1,
+          "environment": 0,
+          "political": 0,
+          "people": 0
+        }
+      },
+      {
+        "key": 0,
+        "content": "It's better to wait.",
+        "values": {
+          "innovation": -1,
+          "money": 0,
+          "environment": 0,
+          "political": 0,
+          "people": 0
+        }
+      }]
+  },
+  {
+    "id": "T1Y1",
+    "dependency": [
+      ["T1", 1]
+    ],
+    "actor": "CTO",
+    "prob": 0.3,
+    "content": "We have just received a letter from the police department. They are very happy with the app and want to use it in their daily work. They are also willing to pay a lot of money for it. Should we sell it to them?",
+    "answers": [
+      {
+        "key": 1,
+        "content": "Sell it.",
+        "values": {
+          "innovation": 0,
+          "money": 1,
+          "environment": 0,
+          "political": 0,
+          "people": 0
+        }
+      },
+      {
+        "key": 0,
+        "content": "Don't sell it.",
+        "values": {
+          "innovation": 0,
+          "money": -1,
+          "environment": 0,
+          "political": 0,
+          "people": 0
+        }
+      }]
+  },
+  {
+    "id": "T1Y2",
+    "dependency": [
+     ["T1", 1] 
+    ],
+    "actor": "CTO",
+    "prob": 0.7,
+    "content": "Morning Mr. Trust. Our technology for police surveillance has failed to meet standards concerning racial bias during practical trials and now they are demanding us a solution. Should we shut down the system?",
+    "answers": [
+      {
+        "key": 1,
+        "content": "Yes, shut it down.",
+        "values": {
+          "innovation": -1,
+          "money": -1,
+          "environment": 0,
+          "political": -1,
+          "people": 0
+        }
+      },
+      {
+        "key": 0,
+        "content": "No, fix it.",
+        "values": {
+          "innovation": 0,
+          "money": -2,
+          "environment": 0,
+          "political": 1,
+          "people": 0
+        }
+      }]
+  },
+  {
+    "id": "T3",
+    "dependency": [],
+    "actor": "CTO",
+    "prob": 1,
+    "content": "Sir may I talk to you for a second? The final test phase of our autonomous vehicles is almost at its end, there are only a few software glitches to be fixed. Should I already notify the marketing team to advertise the product?",
+    "answers":[
+      {
+        "key": 1,
+        "content": "Yes, advertise it.",
+        "values": {
+          "innovation": 1,
+          "money": 0,
+          "environment": 0,
+          "political": 0,
+          "people": 0
+        }
+      },
+      {
+        "key": 0,
+        "content": "No, wait.",
+        "values": {
+          "innovation": -1,
+          "money": 0,
+          "environment": 0,
+          "political": 0,
+          "people": 0
+        }
+      }
+    ]
+  },
+  {
+    "id": "T3N1",
+    "dependency": [
+      ["T3", 0]
+    ],
+    "actor": "CTO",
+    "prob": 0.8,
+    "content": "I come back with great news Mr. Trust! Thanks to the postponement of the autonomous vehicle advertisement, we were able to identify a bug that might have produced several accidents in the streets.",
+    "answers": [
+      {
+        "key": 1,
+        "content": "Great!",
+        "values": {
+          "innovation": 1,
+          "money": 1,
+          "environment": 0,
+          "political": 0,
+          "people": 0
+        }
+      },
+      {
+        "key": 0,
+        "content": "I'm glad we waited.",
+        "values": {
+          "innovation": 1,
+          "money": 1,
+          "environment": 0,
+          "political": 0,
+          "people": 0
+        }
+      }
+    ]
+  },
+  {
+    "id": "T3N2",
+    "dependency": [
+      ["T3", 0]
+    ],
+    "actor": "CTO",
+    "prob": 0.2,
+    "content": "I have some bad news Mr. Trust! The latest market analysis show that we are loosing our position in the market to other companys who are launching autonomous vehicles.",
+    "answers": [
+      {
+        "key": 1,
+        "content": "Damn it !",
+        "values": {
+          "innovation": 0,
+          "money": -1,
+          "environment": 0,
+          "political": 0,
+          "people": -1
+        }
+      },
+      {
+        "key": 0,
+        "content": "Damn it !",
+        "values": {
+          "innovation": 0,
+          "money": -1,
+          "environment": 0,
+          "political": 0,
+          "people": -1
+        }
+      }
+    ]
+  },
+  {
+    "id": "S1",
+    "dependency": [],
+    "actor": "Senator",
+    "prob": 1,
+    "content": "Greetings chairman. Can we count on your company to sell autonomous weapons to the Army?",
+    "answers": [
+      {
+        "key": 1,
+        "content": "Yes, you can count on us.",
+        "values": {
+          "innovation": 0,
+          "money": 1,
+          "environment": 0,
+          "political": 1,
+          "people": -1
+        }
+      },
+      {
+        "key": 0,
+        "content": "I'm sorry, but I will not be able to help you this time.",
+        "values": {
+          "innovation": 0,
+          "money": 0,
+          "environment": 0,
+          "political": -1,
+          "people": 0
+        }
+      }
+    ]
+  },
+  {
+    "id": "S1Y1",
+    "dependency": [
+      ["S1",1]
+    ],
+    "actor": "Senator",
+    "prob": 1,
+    "content": "We have a problem. One of the autonomous models your team developed has mistaken an innocent citizen for a criminal and killed him. You need to shut down the program immediately.",
+    "answers": [
+      {
+        "key": 1,
+        "content": "Shut it down !",
+        "values": {
+          "innovation": 0,
+          "money": -2,
+          "environment": 0,
+          "political": 0,
+          "people": 1
+        }
+      },
+      {
+        "key": 0,
+        "content": "No, we cannot throw it all away. Fix it !",
+        "values": {
+          "innovation": 0,
+          "money": 0,
+          "environment": 0,
+          "political": -2,
+          "people": -2
+        }
+      }
+    ]
+  },
+  {
+    "id": "S3",
+    "dependency": [],
+    "actor": "Senator",
+    "prob": 1,
+    "content": "I have grown fond of your company and I'd like to propose you a one-time offer. Would you like to be Minister of Technology ?",
+    "answers": [
+      {
+        "key": 1,
+        "content": "Yes, It would be an honor.",
+        "values": {
+          "innovation": 0,
+          "money": 0,
+          "environment": 0,
+          "political": 2,
+          "people": 0
+        }
+      },
+      {
+        "key": 0,
+        "content": "I'm sorry, I will have to pass this time.",
+        "values": {
+          "innovation": 0,
+          "money": 0,
+          "environment": 0,
+          "political": -1,
+          "people": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "E1",
+    "dependency": [],
+    "actor": "Environmentalist",
+    "prob": 1,
+    "content": "Excuse me sir, you might not like this but in my last analysis I found that the market of NFTs is heavily polluting the environment. I know that with your influence a simple tweet will make people use it less.",
+    "answers": [
+      {
+        "key": 1,
+        "content": "Yes, let's do it !",
+        "values": {
+          "innovation": 0,
+          "money": 0,
+          "environment": 1,
+          "political": 0,
+          "people": 0
+        }
+      },
+      {
+        "key": 0,
+        "content": "No, let's keep a low profile on social media.",
+        "values": {
+          "innovation": 0,
+          "money": 0,
+          "environment": 0,
+          "political": 0,
+          "people": -1
+        }
+      }
+    ]
+  },
+  {
+    "id": "E2",
+    "dependency": [],
+    "actor": "Environmentalist",
+    "prob": 1,
+    "content": "Hello Mr. Trust! After analyzing our new tech that will greatly increase the efficiency of our data centers, my studies point out that it will require a rare mineral that can only be obtained by exploiting mining activities in Lusangazi. Should we start the operations?",
+    "answers": [
+      {
+        "key": 1,
+        "content": "Yes, get me that metal !",
+        "values": {
+          "innovation": 0,
+          "money": 3,
+          "environment": -1,
+          "political": 0,
+          "people": -1
+        }
+      },
+      {
+        "key": 0,
+        "content": "No, keep doing research.",
+        "values": {
+          "innovation": -1,
+          "money": 0,
+          "environment": 0,
+          "political": 0,
+          "people": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "M1",
+    "dependency": [],
+    "actor": "Media",
+    "prob": 1,
+    "content": "Mr. Trust, I'd like to write an article about the process of creating apps in your company.",
+    "answers": [
+      {
+        "key": 1,
+        "content": "Yes, that's a great idea !",
+        "values": {
+          "innovation": 0,
+          "money": -1,
+          "environment": 0,
+          "political": 0,
+          "people": 1
+        }
+      },
+      {
+        "key": 0,
+        "content": "No, I don't see the point of doing something like that.",
+        "values": {
+          "innovation": 0,
+          "money": 0,
+          "environment": 0,
+          "political": 0,
+          "people": -1
+        }
+      }
+    ]
+  },
+  {
+    "id": "E2Y",
+    "dependency": [],
+    "actor": "Media",
+    "prob": 1,
+    "content": "T4 (T3N) I come back with great news Mr. Trust! Thanks to the postponement of the autonomous vehicle advertisement, we were able to identify a bug that might have produced several accidents in the streets.",
+    "answers": [
+      {
+        "key": 1,
+        "content": "We need an ethical sourcing plan. ASAP !",
+        "values": {
+          "innovation": 0,
+          "money": -2,
+          "environment": 0,
+          "political": 0,
+          "people": 1
+        }
+      },
+      {
+        "key": 0,
+        "content": "A tweet should be enough",
+        "values": {
+          "innovation": 0,
+          "money": -1,
+          "environment": 0,
+          "political": 0,
+          "people": -1
+        }
+      }
+    ]
+  },
+  {
+    "id": "T3Y",
+    "dependency": [
+      ["T3",1]
+    ],
+    "actor": "CTO",
+    "prob": 1,
+    "content": "Mr. Trust, one of your autonomous vehicles has ran over a pedestrian and killed him and someone needs to take responsibility. Should we fire the CTO?",
+    "answers": [
+      {
+        "key": 1,
+        "content": "Fire him.",
+        "values": {
+          "innovation": -1,
+          "money": 0,
+          "environment": 0,
+          "political": 0,
+          "people": 1
+        }
+      },
+      {
+        "key": 0,
+        "content": "No, he is an important asset to the team.",
+        "values": {
+          "innovation": 0,
+          "money": 0,
+          "environment": 0,
+          "political": 0,
+          "people": -1
+        }
+      }
+    ]
+  }
+]

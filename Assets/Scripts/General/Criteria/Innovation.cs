@@ -5,9 +5,11 @@ using UnityEngine;
 public class Innovation : MonoBehaviour
 {
     public int curInnovation = 0;
-    public int maxInnovation = 100;
+    public int maxInnovation = 10;
 
     public InnovationBar innovationBar;
+    public InnovationBar resultsInnovationBar;
+
 
     void Start()
     {
@@ -16,16 +18,20 @@ public class Innovation : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+    }
+
+    public void UpdateInnovation(int points)
+    {
+        curInnovation += points;
+        if(curInnovation > maxInnovation)
         {
-            DecreaseInnovation(10);
+            curInnovation = maxInnovation;
         }
     }
 
-    public void DecreaseInnovation(int points)
+    public void UpdateBar()
     {
-        curInnovation -= points;
-
         innovationBar.SetInnovation(curInnovation);
+        resultsInnovationBar.SetInnovation(curInnovation);
     }
 }
