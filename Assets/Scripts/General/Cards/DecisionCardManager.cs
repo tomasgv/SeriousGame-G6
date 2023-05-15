@@ -6,6 +6,21 @@ using System.IO;
 public class DecisionCardManager : MonoBehaviour
 {
     public CardList cardList;
+    public DecisionCard currentCard;
+
+    private static DecisionCardManager _instance;
+    public static DecisionCardManager instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = GameObject.FindObjectOfType<DecisionCardManager>();
+            }
+            return _instance;
+        }
+    }
+
 
     void Start()
     {
@@ -18,16 +33,16 @@ public class DecisionCardManager : MonoBehaviour
     public void GetRandomDecisionCard()
     {
         int index = Random.Range(0, cardList.decisionCards.Count);
-        Debug.Log("Count:" + cardList.decisionCards.Count);
-        Debug.Log("Index:" + index);
-        DecisionCard currentCard = cardList.decisionCards[index];
+
+        currentCard = cardList.decisionCards[index];
+        cardList.decisionCards.RemoveAt(index);
+
+        Debug.Log("cards:" + cardList.decisionCards.Count);
 
         string rightKeyText = currentCard.answers[0].content;
         string leftKeyText = currentCard.answers[1].content;
 
         // Set UI Card text
         UIManager.instance.SetCardText(currentCard.actor, currentCard.content, rightKeyText, leftKeyText);
-
-
     }
 }

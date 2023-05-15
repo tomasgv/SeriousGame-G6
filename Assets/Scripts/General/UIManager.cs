@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     public GameObject panelWelcomePage;
     public PanelInGame panelInGame;
     public GameObject panelGameOver;
+    public GameObject panelEndPeriod;
 
     // Actor UI
     public GameObject ActorName;
@@ -20,6 +21,7 @@ public class UIManager : MonoBehaviour
 
     // Date Text
     public GameObject Date;
+    public GameObject ResultsDate;
 
     private static UIManager _instance;
     public static UIManager instance
@@ -34,28 +36,42 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void LaunchLevel2()
-    {
-        Main main = FindObjectOfType<Main>();
-        if (main != null)
-        {
-            main.LaunchGame(2);
-        }
-    }
-
     public void GoToStateWelcome()
     {
         panelWelcomePage.SetActive(true);
         panelInGame.gameObject.SetActive(false);
+        panelEndPeriod.SetActive(false);
+        panelGameOver.SetActive(false);
     }
 
     public void GoToStateInGame()
     {
-        
-
-
         panelWelcomePage.SetActive(false);
         panelInGame.gameObject.SetActive(true);
+        panelEndPeriod.SetActive(false);
+        panelGameOver.SetActive(false);
+    }
+
+    public void GoToStateEndPeriod()
+    {
+        Player.instance.money.UpdateBar();
+        Player.instance.innovation.UpdateBar();
+        Player.instance.environment.UpdateBar();
+        Player.instance.people.UpdateBar();
+        Player.instance.political.UpdateBar();
+
+        panelWelcomePage.SetActive(false);
+        panelInGame.gameObject.SetActive(false);
+        panelEndPeriod.SetActive(true);
+        panelGameOver.SetActive(false);
+    }
+
+    public void GoToStateGameOver()
+    {
+        panelWelcomePage.SetActive(false);
+        panelInGame.gameObject.SetActive(false);
+        panelEndPeriod.SetActive(false);
+        panelGameOver.SetActive(true);
     }
 
     public void SetCardText(string actorName, string actorDialog, string rightKeyText, string leftKeyText)
@@ -83,5 +99,11 @@ public class UIManager : MonoBehaviour
     {
         TextMeshProUGUI Date1 = Date.GetComponent<TextMeshProUGUI>();
         Date1.text = "Week " + week + ", Day " + day;
+    }
+
+    public void SetResultsDate(int week)
+    {
+        TextMeshProUGUI ResultsDate1 = ResultsDate.GetComponent<TextMeshProUGUI>();
+        ResultsDate1.text = "Week " + week;
     }
 }

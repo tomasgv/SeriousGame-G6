@@ -5,9 +5,10 @@ using UnityEngine;
 public class Political : MonoBehaviour
 {
     public int curPolitical = 0;
-    public int maxPolitical = 100;
+    public int maxPolitical = 10;
 
     public PoliticalBar politicalBar;
+    public PoliticalBar resultsPoliticalBar;
 
     void Start()
     {
@@ -16,16 +17,20 @@ public class Political : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+    }
+
+    public void UpdatePolitical(int points)
+    {
+        curPolitical += points;
+        if (curPolitical > maxPolitical)
         {
-            DecreasePolitical(10);
+            curPolitical = maxPolitical;
         }
     }
 
-    public void DecreasePolitical(int points)
+    public void UpdateBar()
     {
-        curPolitical -= points;
-
         politicalBar.SetPolitical(curPolitical);
+        resultsPoliticalBar.SetPolitical(curPolitical);
     }
 }

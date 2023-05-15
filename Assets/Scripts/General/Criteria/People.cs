@@ -5,9 +5,10 @@ using UnityEngine;
 public class People : MonoBehaviour
 {
     public int curPeople = 0;
-    public int maxPeople = 100;
+    public int maxPeople = 10;
 
     public PeopleBar peopleBar;
+    public PeopleBar resultsPeopleBar;
 
     void Start()
     {
@@ -16,16 +17,20 @@ public class People : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+    }
+
+    public void UpdatePeople(int points)
+    {
+        curPeople += points;
+        if (curPeople > maxPeople)
         {
-            DecreasePeople(10);
+            curPeople = maxPeople;
         }
     }
 
-    public void DecreasePeople(int points)
+    public void UpdateBar()
     {
-        curPeople -= points;
-
         peopleBar.SetPeople(curPeople);
+        resultsPeopleBar.SetPeople(curPeople);
     }
 }

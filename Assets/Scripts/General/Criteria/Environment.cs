@@ -5,9 +5,11 @@ using UnityEngine;
 public class Environment : MonoBehaviour
 {
     public int curEnvironment = 0;
-    public int maxEnvironment = 100;
+    public int maxEnvironment = 10;
 
     public EnvironmentBar environmentBar;
+    public EnvironmentBar resultsEnvironmentBar;
+
 
     void Start()
     {
@@ -16,16 +18,21 @@ public class Environment : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+    }
+
+    public void UpdateEnvironment(int points)
+    {
+        curEnvironment += points;
+        if (curEnvironment > maxEnvironment)
         {
-            DecreaseEnvironment(10);
+            curEnvironment = maxEnvironment;
         }
     }
 
-    public void DecreaseEnvironment(int points)
+    public void UpdateBar()
     {
-        curEnvironment -= points;
-
         environmentBar.SetEnvironment(curEnvironment);
+        resultsEnvironmentBar.SetEnvironment(curEnvironment);
     }
+
 }

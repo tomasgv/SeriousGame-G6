@@ -4332,7 +4332,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 970203879}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1946592831}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: NextWeek
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1946592833}
+        m_TargetAssemblyTypeName: DecisionCardManager, Assembly-CSharp
+        m_MethodName: GetRandomDecisionCard
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &970203879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6596,10 +6620,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1946592833}
-        m_TargetAssemblyTypeName: DecisionCardManager, Assembly-CSharp
-        m_MethodName: GetRandomDecisionCard
-        m_Mode: 1
+      - m_Target: {fileID: 1946592831}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: UpdateValues
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6862,12 +6886,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1615846603}
   - component: {fileID: 1615846605}
+  - component: {fileID: 1615846610}
   - component: {fileID: 1615846604}
   - component: {fileID: 1615846606}
   - component: {fileID: 1615846607}
   - component: {fileID: 1615846609}
   - component: {fileID: 1615846608}
-  - component: {fileID: 1615846610}
   m_Layer: 5
   m_Name: Player
   m_TagString: Player
@@ -6908,7 +6932,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   curInnovation: 0
-  maxInnovation: 100
+  maxInnovation: 10
   innovationBar: {fileID: 1933285953}
 --- !u!212 &1615846605
 SpriteRenderer:
@@ -6975,7 +6999,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   curMoney: 0
-  maxMoney: 100
+  maxMoney: 10
   moneyBar: {fileID: 1978319943}
 --- !u!114 &1615846607
 MonoBehaviour:
@@ -6990,7 +7014,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   curEnvironment: 0
-  maxEnvironment: 100
+  maxEnvironment: 10
   environmentBar: {fileID: 2129831791}
 --- !u!114 &1615846608
 MonoBehaviour:
@@ -7005,7 +7029,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   curPolitical: 0
-  maxPolitical: 100
+  maxPolitical: 10
   politicalBar: {fileID: 1464248594}
 --- !u!114 &1615846609
 MonoBehaviour:
@@ -7020,7 +7044,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   curPeople: 0
-  maxPeople: 100
+  maxPeople: 10
   peopleBar: {fileID: 891421005}
 --- !u!114 &1615846610
 MonoBehaviour:
@@ -7034,11 +7058,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed2afcd1fe4474b9ab5bdf690b415769, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  innovation: 0
-  environment: 0
-  political: 0
-  people: 0
-  money: {fileID: 0}
+  innovation: {fileID: 1615846604}
+  environment: {fileID: 1615846607}
+  political: {fileID: 1615846608}
+  people: {fileID: 1615846609}
+  money: {fileID: 1615846606}
 --- !u!1 &1645816628
 GameObject:
   m_ObjectHideFlags: 0
@@ -7544,14 +7568,14 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1946592833}
-        m_TargetAssemblyTypeName: DecisionCardManager, Assembly-CSharp
-        m_MethodName: GetRandomDecisionCard
-        m_Mode: 1
+      - m_Target: {fileID: 1946592831}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: UpdateValues
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -7641,6 +7665,7 @@ MonoBehaviour:
   panelWelcomePage: {fileID: 1270747113}
   panelInGame: {fileID: 1761161813}
   panelGameOver: {fileID: 0}
+  panelEndPeriod: {fileID: 705680222}
   ActorName: {fileID: 164699303}
   ActorDialog: {fileID: 1411258860}
   ActorImage: {fileID: 353546061}
@@ -8550,6 +8575,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardList:
     decisionCards: []
+  currentCard:
+    id: 
+    actor: 
+    prob: 0
+    content: 
+    answers: []
 --- !u!1 &1956347015
 GameObject:
   m_ObjectHideFlags: 0

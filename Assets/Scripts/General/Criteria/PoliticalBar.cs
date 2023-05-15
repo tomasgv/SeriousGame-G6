@@ -15,7 +15,7 @@ public class PoliticalBar : MonoBehaviour
         politicalBar.maxValue = playerPolitical.maxPolitical;
         politicalBar.value = playerPolitical.maxPolitical;
 
-        UIManager.instance.panelInGame.UpdatePlayerValues();
+        //UIManager.instance.panelInGame.UpdatePlayerValues();
 
     }
 

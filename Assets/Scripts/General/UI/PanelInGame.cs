@@ -9,9 +9,10 @@ public class PanelInGame : MonoBehaviour
 
     public Slider sliderInnovation;
 
-    public void UpdatePlayerValues ()
+    /*public void UpdatePlayerValues ()
     {
         sliderInnovation.value = Main.instance.player.innovation;
 
     }
+    */
 }
