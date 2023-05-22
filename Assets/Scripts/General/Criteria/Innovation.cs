@@ -27,6 +27,7 @@ public class Innovation : MonoBehaviour
         {
             curInnovation = maxInnovation;
         }
+        UpdateBar();
     }
 
     public void UpdateBar()

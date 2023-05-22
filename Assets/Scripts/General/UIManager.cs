@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour
     public GameObject panelWelcomePage;
     public PanelInGame panelInGame;
     public GameObject panelGameOver;
-    public GameObject panelEndPeriod;
+    public PanelEndPeriod panelEndPeriod;
 
     // Actor UI
     public GameObject ActorName;
@@ -40,7 +40,7 @@ public class UIManager : MonoBehaviour
     {
         panelWelcomePage.SetActive(true);
         panelInGame.gameObject.SetActive(false);
-        panelEndPeriod.SetActive(false);
+        panelEndPeriod.gameObject.SetActive(false);
         panelGameOver.SetActive(false);
     }
 
@@ -48,21 +48,30 @@ public class UIManager : MonoBehaviour
     {
         panelWelcomePage.SetActive(false);
         panelInGame.gameObject.SetActive(true);
-        panelEndPeriod.SetActive(false);
+        panelEndPeriod.gameObject.SetActive(false);
         panelGameOver.SetActive(false);
     }
 
     public void GoToStateEndPeriod()
     {
+        // Update All comments
+        panelEndPeriod.UpdateComment("Innovation", (int)Player.instance.innovation.innovationBar.innovationBar.value, Player.instance.innovation.curInnovation);
+        panelEndPeriod.UpdateComment("Finance", (int)Player.instance.money.moneyBar.moneyBar.value, Player.instance.money.curMoney);
+        panelEndPeriod.UpdateComment("Popularity", (int)Player.instance.people.peopleBar.peopleBar.value, Player.instance.people.curPeople);
+        panelEndPeriod.UpdateComment("Political alliance", (int)Player.instance.political.politicalBar.politicalBar.value, Player.instance.political.curPolitical);
+        panelEndPeriod.UpdateComment("Environment", (int)Player.instance.environment.environmentBar.environmentBar.value, Player.instance.environment.curEnvironment);
+
+        /*
         Player.instance.money.UpdateBar();
         Player.instance.innovation.UpdateBar();
         Player.instance.environment.UpdateBar();
         Player.instance.people.UpdateBar();
         Player.instance.political.UpdateBar();
+        */
 
         panelWelcomePage.SetActive(false);
         panelInGame.gameObject.SetActive(false);
-        panelEndPeriod.SetActive(true);
+        panelEndPeriod.gameObject.SetActive(true);
         panelGameOver.SetActive(false);
     }
 
@@ -70,7 +79,7 @@ public class UIManager : MonoBehaviour
     {
         panelWelcomePage.SetActive(false);
         panelInGame.gameObject.SetActive(false);
-        panelEndPeriod.SetActive(false);
+        panelEndPeriod.gameObject.SetActive(false);
         panelGameOver.SetActive(true);
     }
 

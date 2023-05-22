@@ -13,7 +13,7 @@ public class InnovationBar : MonoBehaviour
         playerInnovation = GameObject.FindGameObjectWithTag("Player").GetComponent<Innovation>();
         innovationBar = GetComponent<Slider>();
         innovationBar.maxValue = playerInnovation.maxInnovation;
-        innovationBar.value = playerInnovation.maxInnovation;
+        innovationBar.value = playerInnovation.curInnovation;
     }
 
     public void SetInnovation(int value)

@@ -13,7 +13,7 @@ public class PoliticalBar : MonoBehaviour
         playerPolitical = GameObject.FindGameObjectWithTag("Player").GetComponent<Political>();
         politicalBar = GetComponent<Slider>();
         politicalBar.maxValue = playerPolitical.maxPolitical;
-        politicalBar.value = playerPolitical.maxPolitical;
+        politicalBar.value = playerPolitical.curPolitical;
 
         //UIManager.instance.panelInGame.UpdatePlayerValues();
 

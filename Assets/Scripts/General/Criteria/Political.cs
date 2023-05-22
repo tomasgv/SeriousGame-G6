@@ -26,6 +26,7 @@ public class Political : MonoBehaviour
         {
             curPolitical = maxPolitical;
         }
+        UpdateBar();
     }
 
     public void UpdateBar()

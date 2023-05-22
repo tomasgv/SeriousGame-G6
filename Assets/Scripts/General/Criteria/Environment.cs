@@ -27,6 +27,7 @@ public class Environment : MonoBehaviour
         {
             curEnvironment = maxEnvironment;
         }
+        UpdateBar();
     }
 
     public void UpdateBar()

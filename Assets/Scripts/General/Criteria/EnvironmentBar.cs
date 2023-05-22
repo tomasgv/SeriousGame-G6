@@ -13,11 +13,13 @@ public class EnvironmentBar : MonoBehaviour
         playerEnvironment = GameObject.FindGameObjectWithTag("Player").GetComponent<Environment>();
         environmentBar = GetComponent<Slider>();
         environmentBar.maxValue = playerEnvironment.maxEnvironment;
-        environmentBar.value = playerEnvironment.maxEnvironment;
+        environmentBar.value = playerEnvironment.curEnvironment;
     }
 
     public void SetEnvironment(int value)
     {
-        environmentBar.value = value;
+        //environmentBar.value = value;
+        float speed = 10f; //Defines how fast it switches between the 2 values
+        environmentBar.value = Mathf.Lerp(environmentBar.value, value, Time.deltaTime * speed);
     }
 }

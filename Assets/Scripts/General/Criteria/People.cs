@@ -26,6 +26,7 @@ public class People : MonoBehaviour
         {
             curPeople = maxPeople;
         }
+        UpdateBar();
     }
 
     public void UpdateBar()

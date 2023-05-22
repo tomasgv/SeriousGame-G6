@@ -26,6 +26,7 @@ public class Money : MonoBehaviour
         {
             curMoney = maxMoney;
         }
+        UpdateBar();
     }
 
     public void UpdateBar()
